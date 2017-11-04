@@ -1,3 +1,7 @@
 .App {
   text-align: center;
+  background-color: mediumaquamarine;
+  margin-right: 20%;
+  margin-left: 20%;
+  border-radius: 5px;
 }

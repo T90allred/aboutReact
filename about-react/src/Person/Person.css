@@ -1,0 +1,7 @@
+.Person {
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+}
