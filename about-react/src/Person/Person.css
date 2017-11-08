@@ -1,7 +1,10 @@
 .Person {
-    border: 2px solid white;
-    border-radius: 5px;
+    border: 2px solid #000;
+    border-radius: 2px;
+    width: 60%;
+    margin: auto;
     margin-top: 10px;
-    background-color: black;
-    color: white;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
 }
