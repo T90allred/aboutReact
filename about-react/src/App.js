@@ -36,11 +36,23 @@ class App extends Component {
   }
 
   render() {
+
+    const style = {
+      backgroundColor: 'tomato',
+      font: 'inherit',
+      boder: '3px solid blue',
+      padding: '8px',
+      borderRadius: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>This is an app all about React</h1>
         <p>Remember that each component needs a parent wrapper element!</p>
-        <button onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
+        <button 
+          style={style}
+          onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
         <Person 
           name={this.state.persons[0].name} 
           age={this.state.persons[0].age}
