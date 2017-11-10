@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import UserInput from './UserInput/UserInput';
+import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
   state = {
@@ -51,6 +53,10 @@ class App extends Component {
       <div className="App">
         <h1>This is an app all about React</h1>
         <p>Remember that each component needs a parent wrapper element!</p>
+        <UserInput />
+        <UserOutput />
+        <UserOutput />
+        <UserOutput />
         <button 
           style={style}
           onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
