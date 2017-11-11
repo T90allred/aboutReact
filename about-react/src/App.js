@@ -54,9 +54,12 @@ class App extends Component {
         <h1>This is an app all about React</h1>
         <p>Remember that each component needs a parent wrapper element!</p>
         <UserInput />
-        <UserOutput />
-        <UserOutput />
-        <UserOutput />
+        <UserOutput
+          name='Leo' />
+        <UserOutput
+          name='Neal' />
+        <UserOutput
+          name='Jack' />
         <button 
           style={style}
           onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
