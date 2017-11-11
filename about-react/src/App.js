@@ -12,10 +12,10 @@ class App extends Component {
       { name: 'Jake', age: 22 },
       { name: 'Izzy', age: 22 }
     ],
-    userName: [
-      { user: 'ladyzMan' },
-      { user: 'greenHornet' },
-      { user: 'theHammer' }
+    userNames: [
+      { username: 'ladyzMan' },
+      { username: 'greenHornet' },
+      { username: 'theHammer' }
     ]
   }
 
@@ -42,6 +42,16 @@ class App extends Component {
     })
   }
 
+  usernameChangeHandler = (event) => {
+    this.setState({
+      userNames: [
+        { username: event.target.value },
+        { username: '...' },
+        { username: '...' }
+      ]
+    })
+  }
+
   render() {
 
     const style = {
@@ -58,16 +68,19 @@ class App extends Component {
       <div className="App">
         <h1>This is an app all about React</h1>
         <p>Remember that each component needs a parent wrapper element!</p>
-        <UserInput />
+        <UserInput 
+          username={this.state.userNames[0].username}
+          change={this.usernameChangeHandler} />
         <UserOutput
           name='Leo'
-          newName={this.state.userName[0].user} />
+          newName={this.state.userNames[0].username}
+          change={this.usernameChangeHandler} />
         <UserOutput
           name='Neal'
-          newName={this.state.userName[1].user} />
+          newName={this.state.userNames[1].username} />
         <UserOutput
           name='Jack'
-          newName={this.state.userName[2].user} />
+          newName={this.state.userNames[2].username} />
         <button 
           style={style}
           onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
