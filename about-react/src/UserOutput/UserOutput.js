@@ -7,6 +7,7 @@ const userOutput = (props) => {
             <p>USER OUTPUT HERE</p>
             <p>MORE USER OUTPUT</p>
             <h1>{props.name}</h1>
+            <p>USERNAME: <span className='name'> {props.newName} </span></p>
         </div>
     )
 }
