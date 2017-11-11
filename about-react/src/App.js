@@ -11,6 +11,11 @@ class App extends Component {
       { name: 'Sam', age: 22 },
       { name: 'Jake', age: 22 },
       { name: 'Izzy', age: 22 }
+    ],
+    userName: [
+      { user: 'ladyzMan' },
+      { user: 'greenHornet' },
+      { user: 'theHammer' }
     ]
   }
 
@@ -55,11 +60,14 @@ class App extends Component {
         <p>Remember that each component needs a parent wrapper element!</p>
         <UserInput />
         <UserOutput
-          name='Leo' />
+          name='Leo'
+          newName={this.state.userName[0].user} />
         <UserOutput
-          name='Neal' />
+          name='Neal'
+          newName={this.state.userName[1].user} />
         <UserOutput
-          name='Jack' />
+          name='Jack'
+          newName={this.state.userName[2].user} />
         <button 
           style={style}
           onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
