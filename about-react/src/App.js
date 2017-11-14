@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import UserInput from './UserInput/UserInput';
-import UserOutput from './UserOutput/UserOutput';
+
+
 
 class App extends Component {
   state = {
@@ -55,6 +55,29 @@ class App extends Component {
       cursor: 'pointer'
     };
 
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div >
+          <Person 
+            name={this.state.persons[0].name} 
+            age={this.state.persons[0].age}
+            click={this.switchNameHandler.bind(this, 'D-Rock')}> Role: Admin </Person>
+          <Person 
+            name={this.state.persons[1].name}   
+            age={this.state.persons[1].age}
+            changed={this.nameChangedHandler}> Role: Manager </Person>
+          <Person 
+            name={this.state.persons[2].name} 
+            age={this.state.persons[2].age}> Role: Cook </Person>
+          <Person 
+            name={this.state.persons[3].name} 
+            age={this.state.persons[3].age}> Role: Host </Person>
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <h1>This is an app all about React</h1>
@@ -62,25 +85,7 @@ class App extends Component {
         <button 
           style={style}
           onClick={this.togglePersonsHandler}>Toggle People</button>
-        {
-          this.state.showPersons ? 
-            <div >
-              <Person 
-                name={this.state.persons[0].name} 
-                age={this.state.persons[0].age}
-                click={this.switchNameHandler.bind(this, 'D-Rock')}> Role: Admin </Person>
-              <Person 
-                name={this.state.persons[1].name}   
-                age={this.state.persons[1].age}
-                changed={this.nameChangedHandler}> Role: Manager </Person>
-              <Person 
-                name={this.state.persons[2].name} 
-                age={this.state.persons[2].age}> Role: Cook </Person>
-              <Person 
-                name={this.state.persons[3].name} 
-                age={this.state.persons[3].age}> Role: Host </Person>
-            </div> : null
-        }
+          {persons}
       </div>
     );
     // manually done with React.createElement... the above jsx gets run just like the next line
