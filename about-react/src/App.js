@@ -12,11 +12,7 @@ class App extends Component {
       { name: 'Jake', age: 22 },
       { name: 'Izzy', age: 22 }
     ],
-    userNames: [
-      { username: 'ladyzMan' },
-      { username: 'greenHornet' },
-      { username: 'theHammer' }
-    ]
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
@@ -42,14 +38,9 @@ class App extends Component {
     })
   }
 
-  usernameChangeHandler = (event) => {
-    this.setState({
-      userNames: [
-        { username: event.target.value },
-        { username: '...' },
-        { username: '...' }
-      ]
-    })
+  togglePersonsHandler = () => {
+    const doeShow = this.state.showPersons;
+    this.setState({showPersons: !doeShow});
   }
 
   render() {
@@ -68,36 +59,28 @@ class App extends Component {
       <div className="App">
         <h1>This is an app all about React</h1>
         <p>Remember that each component needs a parent wrapper element!</p>
-        <UserInput 
-          username={this.state.userNames[0].username}
-          change={this.usernameChangeHandler} />
-        <UserOutput
-          name='Leo'
-          newName={this.state.userNames[0].username}
-          change={this.usernameChangeHandler} />
-        <UserOutput
-          name='Neal'
-          newName={this.state.userNames[1].username} />
-        <UserOutput
-          name='Jack'
-          newName={this.state.userNames[2].username} />
         <button 
           style={style}
-          onClick={ () => this.switchNameHandler('Maxy') }>Switch Name</button>
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age}
-          click={this.switchNameHandler.bind(this, 'D-Rock')}> Role: Admin </Person>
-        <Person 
-          name={this.state.persons[1].name}   
-          age={this.state.persons[1].age}
-          changed={this.nameChangedHandler}> Role: Manager </Person>
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}> Role: Cook </Person>
-        <Person 
-          name={this.state.persons[3].name} 
-          age={this.state.persons[3].age}> Role: Host </Person>
+          onClick={this.togglePersonsHandler}>Toggle People</button>
+        {
+          this.state.showPersons ? 
+            <div >
+              <Person 
+                name={this.state.persons[0].name} 
+                age={this.state.persons[0].age}
+                click={this.switchNameHandler.bind(this, 'D-Rock')}> Role: Admin </Person>
+              <Person 
+                name={this.state.persons[1].name}   
+                age={this.state.persons[1].age}
+                changed={this.nameChangedHandler}> Role: Manager </Person>
+              <Person 
+                name={this.state.persons[2].name} 
+                age={this.state.persons[2].age}> Role: Cook </Person>
+              <Person 
+                name={this.state.persons[3].name} 
+                age={this.state.persons[3].age}> Role: Host </Person>
+            </div> : null
+        }
       </div>
     );
     // manually done with React.createElement... the above jsx gets run just like the next line
