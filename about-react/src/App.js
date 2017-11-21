@@ -39,8 +39,8 @@ class App extends Component {
   }
 
   togglePersonsHandler = () => {
-    const doeShow = this.state.showPersons;
-    this.setState({showPersons: !doeShow});
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
   }
 
   render() {
